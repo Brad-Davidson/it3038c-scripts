@@ -3,7 +3,6 @@
 #Date: 2/21/21
 
 from win10toast import ToastNotifier
-import threading
 import time
 
 toaster = ToastNotifier() #notification library
