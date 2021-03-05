@@ -1,6 +1,6 @@
 # Lab 7
 
-### WWikipedia Library Sample
+### Wikipedia Library Sample
 
 This app is meant to showcase the wikipedia library for python3.
 
