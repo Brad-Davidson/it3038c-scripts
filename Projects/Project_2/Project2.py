@@ -18,12 +18,6 @@ def water_timer(interval):
          #sleep first so that the first reminder is x amount of time after starting rather than right away
         time.sleep(interval)
         toaster.show_toast("Water Reminder", "Take a drink of water!", duration = 10)
-def stretch_timer(interval):
-    while True:
-        time.sleep(interval)
-        toaster.show_toast("Stretch Reminder", "Get up and stretch for a bit!", duration = 30)
-        time.sleep(30) #stretch for 30 seconds
-        toaster.show_toast("Stretch Reminder", "You can get back to work!", duration = 10)
 def display_summary(term):
     try:
         print("====== Results for " + term + " ======")
@@ -54,17 +48,16 @@ def monitor_speech():
 #Main code
 def main():
     water_reminder_interval = int(input("How often (in minutes) would you like to be reminded to drink water? "))
-    stretch_reminder_interval = int(input("How often (in minutes) would you like to be reminded to get up and stretch?  "))
+
+    water_reminder_interval = water_reminder_interval * 60 # convert the input to minutes
 
     #create the threads for this program
     speech_thread = threading.Thread(target=monitor_speech)
     water_thread = threading.Thread(target=water_timer, args=(water_reminder_interval, ))
-    stretch_thread = threading.Thread(target=stretch_timer, args=(stretch_reminder_interval, ))
 
     #start multithreading
     speech_thread.start()
     water_thread.start()
-    stretch_thread.start()
 
 main()
 
