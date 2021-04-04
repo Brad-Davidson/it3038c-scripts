@@ -8,7 +8,7 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send('<b>Hello World! My name is = <em>' + process.env.MYNAME + '</em <br /> My Node Environemnt is :' + config.util.getEnv('NODE_ENV') + '</em></b>' + 
+  response.send('<b>Hello World! My name is <em>' + process.env.MYNAME + '</em <br /> My Node Environemnt is ' + config.util.getEnv('NODE_ENV') + '</em></b>' + 
   '<p><a href="/env">What Environment are you in?</a></p>'+
   '<p><a href="/api">Read API data.</a></p>')
 })
