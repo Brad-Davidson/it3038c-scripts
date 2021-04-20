@@ -7,6 +7,9 @@ from PIL import Image
 import types
 from stegano import lsb
 
+# Project 3
+# Bradley Davidson
+
 #the size of each letter picture in the images folder
 CONST_IMAGE_SIZE = (72, 74)
 
@@ -100,3 +103,12 @@ while True:
             print("file not found")
     else:
         print("Invalid answer")
+
+#############################################
+# Resources Used ############################
+#############################################
+# Getting if a string has a number: https://stackoverflow.com/questions/19859282/check-if-a-string-contains-a-number
+# Stegano Library: https://pypi.org/project/stegano/
+# How to mess with images and their pixel values: https://pypi.org/project/opencv-python/
+#
+#
