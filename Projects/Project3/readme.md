@@ -16,6 +16,11 @@ pip install opencv-python
 pip install pillow
 pip3 install Stegano
 ```
+#### Note: this program works best in python version 3.8.5 due to some dependency issues for the stegano library in later versions
+If you need to switch versions and are in a Anaconda environment, then run
+```powershell
+conda install python=3.8.5
+```
 
 
 To run the program, go to the directory that it is downloaded in and type:
