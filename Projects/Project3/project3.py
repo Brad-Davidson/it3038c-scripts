@@ -12,6 +12,7 @@ from stegano import lsb
 
 #the size of each letter picture in the images folder
 CONST_IMAGE_SIZE = (72, 74)
+CONST_LINE_LENGTH = 20
 
 #function for hiding the english translation into the picture
 def encode_picture(text, image_location):
@@ -39,11 +40,11 @@ def encode_to_dragon(text, image_location):
     text_upper = re.sub(r'[^\w\s]','', text_upper)
 
     #create an array of text lines that are all 20 characters or less
-    wrapper = textwrap.TextWrapper(width=20)
+    wrapper = textwrap.TextWrapper(width=CONST_LINE_LENGTH)
     word_list = wrapper.wrap(text=text_upper)
 
     #get the total size that the image will be
-    total_width = CONST_IMAGE_SIZE[0]
+    total_width = CONST_IMAGE_SIZE[0] * CONST_LINE_LENGTH
     total_height = CONST_IMAGE_SIZE[1] * len(word_list)
 
     #create a blank image witht he appropriate size
@@ -65,8 +66,7 @@ def encode_to_dragon(text, image_location):
                 new_image = Image.open(image_string)
                 #paste the appropriate image at its given space on the canvas
                 rune_image.paste(new_image, (x_offset, y_offset))
-            #move the pointer for the x position for the image
-            x_offset += CONST_IMAGE_SIZE[0]
+            x_offset += CONST_IMAGE_SIZE[0] #move the pointer for the x position for the image
         #reset the x pointer as its a new line
         x_offset = 0
         #increment the y pointer so that it goes to the next line
